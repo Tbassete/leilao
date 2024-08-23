@@ -25,11 +25,14 @@
             border-bottom: 1px solid var(--azulMega);
 
             & .imgMega{
-              width: 200px;  
+              width: 270px;  
               height: auto;
             }
             & div{
                 margin: 10px;
+            }
+            & h1{
+                font-size: 18px;
             }
         }
         main{
@@ -38,6 +41,8 @@
             justify-items: center;
             align-items: center;
         }
+
+  
         #gifHomeSection{
             display: flex;
             flex-direction: column;
@@ -59,6 +64,17 @@
             background-position: center center;
             /* background-attachment: fixed; */
             background-size: cover;
+
+            &  #PHome{
+                display: flex;
+                position: relative;
+                color: white;
+                width: 580px;
+                font-size: 43px;
+                bottom: -241px;
+                left: calc(50% - 490px);
+                /* height: auto; */
+            }
         }
         h1{
             color: var(--vermelhoMega);
@@ -86,6 +102,7 @@
             justify-content: center;
             align-items: center;
             margin-top: 10px;
+            margin: 10px 10px 10px 10px;
             & .infoLeilao{
                 margin-bottom: 10px;
             }

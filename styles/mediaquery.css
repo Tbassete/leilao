@@ -1,16 +1,19 @@
 @charset "utf-8";
 
 @media screen and (min-width: 1258px) and (max-width: 2992px){
-
+body{
+    overflow-x: hidden;
+}
     #gifHome{
         /* display: flex;
         flex-direction: column;
         justify-items: center;
         align-items: center; */
-         width: 100vw; 
+         width: 99vw; 
+    
         /* background-color: var(--azulMega); */
         /* padding:0;  */
-        background-image: url(../img/gifleilaofordesktop.gif);
+        background-image: url(../img/bg.PNG);
         height: 110vh;
         /* background-size:100%;
         background-repeat: no-repeat;
@@ -19,5 +22,10 @@
         /* background-size: cover; */ 
     }
 
+    #sectionLeiloes{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 20px 20px 20px;
+    }
 
 }
