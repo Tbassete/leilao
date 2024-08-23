@@ -1,32 +1,41 @@
 const express = require("express");
 const Sequelize = require('sequelize');//conexao com mysql
 const app = express();
-
+app.use(express.static('public'));
 const port = 3000;
 
 // conexao com o banco de dados mysql
-const Sequelize = new Sequelize('lance', 'root', 'jaguarasso',{
+const sequelize = new Sequelize('postapp', 'root', 'jaguarasso',{
     host: "localhost",
     dialect: 'mysql'
 })
 
+sequelize.authenticate().then(function(){
+    console.log("conectou com sucesso")
+}).catch(function(erro){
+    console.log("falha ao se conectar:"+erro)
+})
+
 //criar a table no mysql
-const lance = db.sequelize.define('lance', {
+const lance = sequelize.define('lance', {
 
     leilao: {
-        type: db.Sequelize.int
+        type: Sequelize.INTEGER
     },
     lanceInicial: {
-        type: db.Sequelize.int
+        type: Sequelize.INTEGER
     },
     histLances: {
-        type: db.Sequelize.int
+        type: Sequelize.INTEGER
     },
     NumZap:{
-        type: db.Sequelize.int
+        type: Sequelize.INTEGER
     },
     nomeComprador:{
-        type: db.Sequelize.TEXT
+        type: Sequelize.STRING
+    },
+    dataLimite:{
+        type: Sequelize.DATE
     }
 })
 //execute esse comando so uma vez para criar a table
