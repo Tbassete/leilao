@@ -39,7 +39,11 @@ const lance = sequelize.define('lance', {
     }
 })
 //execute esse comando so uma vez para criar a table
-// lance.sync({force: true}) 
+// lance.sync({force: true}).then(() => {
+//     console.log('Tabela criada com sucesso!');
+//   }).catch((error) => {
+//     console.error('Erro ao criar a tabela:', error);
+//   }); 
 
 module.exports = {
     Sequelize: Sequelize,
@@ -55,9 +59,7 @@ app.get("/add", function(req, res){
     res.send("ta de sacanagi")
 })
 
-function darlance(){
 
-}
 
 // app.get("/darlance", function(req, res){
     
