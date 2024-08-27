@@ -19,12 +19,12 @@
             <img class="imgMega" src="../img/mega sem fundo.png" alt="">
         </div>
         <h1>Working for the best</h1>
+        <p>testezinho 34</p>
     </header>    
 
     <main>
 
-        <h2>o leilao encerrará em dia/horas/minutos/segundos</h2>
-
+       <h2 id="contador">O leilão encerrará em: 00 dias 00 horas 00 minutos 00 segundos</h2>
     <section id="sectionLeiloes">
         <div class="leilao">
             <div class="imgleilao">
@@ -33,7 +33,7 @@
                       <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button> -->
+                       
                       </div>                      
                       <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -42,9 +42,7 @@
                         <div class="carousel-item">
                           <img src="../img/mibr78c-removebg-preview.png" class="d-block w-100" alt="...">
                         </div>
-                        <!-- <div class="carousel-item">
-                          <img src="family.jpg" class="d-block w-100" alt="...">
-                        </div> -->
+            
                       </div>                      
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,21 +55,28 @@
                     </div>
                 </div>
             </div>
-           <div class="infoLeilao">
+
+          <div class="infoLeilao">
+
+                
                 <p>leilao n° 1</p>
                 <P>lance inicial: R$200,00</P>
+                {{!-- <p>lance vencendo: {{histLances[1]}} </p> --}}
                 {{#each lances}}
-                <p>ultimo lance: {{histLances}} </p>
+                  {{#if @last}}
+                     <p>lance vencendo: {{this.histLances}}</p>
+                   {{/if}}
                 {{/each}}
                 
            </div>
 
+
            <form class="FormLeilao" action="/lance" method="post" target="_parent">
             <label for="leilaon" class="esconder">leilao numero:</label>
-            <input type="text" id="leilaon" value="1" name="leilaon">
+            <input type="text" id="leilaon" value="1" class="esconder" name="leilaon">
 
             <label for="lanceInicial1" class="esconder">lance inicial</label>
-            <input type="text" id="lanceInicial1" name="lanceInicial1" value="200">
+            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="200">
 
               <label for="nome">digite seu nome:</label>
               <input type="text" name="nome" id="nome" placeholder=""required> 
@@ -82,7 +87,7 @@
 
               <label for="lanceFixo">lance minimo R$30,00</label>
               <input type="number" id="lanceFixo"  step="30" name="lanceFixo" placeholder="seu lance " required>
-              <button class="botaoLeilao" >dar lance +R$30,00</button>
+              <button id="meuLink" class="botaoLeilao" >dar lance +R$30,00</button>
            </form>
 
         </div>
@@ -91,13 +96,38 @@
 
     </main>
     <script>
-      const input = document.querySelector("#leilaon");
-      input.disabled = false;
-      const input2 = document.querySelector("#lanceInicial1");
-      input2.disabled = false;
-      function showPopup(){
-        alert("kjashd")
-      }
+    const dataEncerramento = new Date('2024-09-05T08:00:00'); // Ajuste a data e hora de encerramento
+
+        const link = document.getElementById('meuLink');
+        const contador = document.getElementById('contador');
+
+        function atualizarContagemRegressiva() {
+            const agora = new Date();
+            const tempoRestante = dataEncerramento - agora;
+
+            if (tempoRestante <= 0) {
+                // Tempo esgotado
+                contador.textContent = 'O leilão encerrou.';
+                link.classList.add('disabled');
+                link.removeAttribute('href');
+                return;
+            }
+
+            // Calcula dias, horas, minutos e segundos
+            const segundos = Math.floor(tempoRestante / 1000) % 60;
+            const minutos = Math.floor(tempoRestante / (1000 * 60)) % 60;
+            const horas = Math.floor(tempoRestante / (1000 * 60 * 60)) % 24;
+            const dias = Math.floor(tempoRestante / (1000 * 60 * 60 * 24));
+
+            // Atualiza o texto do contador
+            contador.textContent = `O leilão encerrará em: ${dias} dias ${horas} horas ${minutos} minutos ${segundos} segundos`;
+        }
+
+        // Atualiza a contagem regressiva a cada segundo
+        setInterval(atualizarContagemRegressiva, 1000);
+
+        // Atualiza imediatamente para exibir o tempo correto sem esperar 1 segundo
+        atualizarContagemRegressiva();
     </script>
     <Script src="index.js"></Script>
 

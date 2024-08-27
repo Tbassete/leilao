@@ -63,17 +63,12 @@
                 </div>
                <div class="infoLeilao">
                     <p>leilao n° 1</p>
-                    <P>lance inicial: R$200,00</P>
-                    <p>ultimo lance: R$230,00</p>
+                    <p>Desktop completo Dell</p>
                     <!-- <button class="botaoLeilao" onclick="showPopup()">dar lance +R$30,00</button> -->
-                    <a class="botaoLeilao" href="/leilao01">dar lance +R$30,00</a>
+                    <a class="botaoLeilao" href="/leilao01/1"> <p class="p1"> dar lance +R$30,00 </p> </a>
                </div>
 
-               <span class="FormLeilao">
-                  <input type="text" id="nome" placeholder="nome:"> 
-                  <input type="tel" id="numeroZap"  placeholder=" 5541999521973" id="">numero
-                  <input type="number" id="lance"  step="30" id="" placeholder="seu lance ">
-               </span>
+              
 
             </div>
 
@@ -90,10 +85,10 @@
                           </div>                      
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img src="public/img/mibr35-removebg-preview.png" class="d-block w-100" alt="...">
+                              <img src="/img/mibr35-removebg-preview.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                              <img src="public/img/mibr78c-removebg-preview.png" class="d-block w-100" alt="...">
+                              <img src="/img/mibr78c-removebg-preview.png" class="d-block w-100" alt="...">
                             </div>
                             <!-- <div class="carousel-item">
                               <img src="family.jpg" class="d-block w-100" alt="...">
@@ -111,10 +106,9 @@
                     </div>
                 </div>
                <div class="infoLeilao">
-                    <p>leilao n° <span>2</span></p>
-                    <P>lance inicial: R$200,00</P>
-                    <p>ultimo lance: R$230,00</p>
-                    <button class="botaoLeilao" onclick="showPopup()">dar lance +R$30,00</button>
+                    <p>leilao n° 2</p>
+                    <P>Notebook Lenovo</P>                    
+                    <a class="botaoLeilao" href="/leilao02/2"> <p class="p1"> dar lance +R$30,00 </p> </a>
                    
 
                     <!-- Estrutura do popup -->
@@ -137,41 +131,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-      function darlance() {
-  // Acesse os elementos pelo ID
-        const nome = document.getElementById("nome").value;
-        const numero = document.getElementById("numeroZap").value;
-        const valLance = document.getElementById("lance").value;
-
-  // Exiba os valores em um alerta
-      alert("Nome: " + nome + "\nNúmero: " + numero + "\nValLance: " + valLance);
-      }
-
-
-      function showPopup() {
-            // Mostra o popup e o overlay
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function closePopup() {
-            // Esconde o popup e o overlay
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function submitForm() {
-            // Obtém os valores dos inputs
-            const nome = document.getElementById("nome").value;
-            const numero = document.getElementById("numeroZap").value;
-            const valLance = document.getElementById("lance").value;
-
-            // Exibe os valores em um alerta
-            alert("Nome: " + nome + "\nNúmero: " + numero + "\nValor do Lance: " + valLance);
-
-            // Fecha o popup
-            closePopup();
-        }
     </script>
 </body>
 </html>

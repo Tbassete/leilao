@@ -92,6 +92,10 @@
             border-style: none;
             max-width: 100px;
             text-decoration: none;
+            margin: 6px;
+            & .p1{
+                margin: 6px;
+            }
         }
         .leilao{
             border: 1px solid #00416954;
@@ -116,7 +120,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: LEFT;
         }
 
         .FormLeilao{
@@ -124,8 +128,32 @@
             flex-direction: column;
             justify-content: center;
             align-items: left;
-            margin-bottom: 20px;
+            margin: 20px;
         }
+
+        #PHome{
+            visibility: hidden;
+        }
+
         .esconder{
-            z-index: -1;
+            /* z-index: -1;
+            width: 1px;
+            color: white;
+            display: block;
+            position: relative;
+            bottom: -241px;
+            left: calc(50% - 490px); */
+            visibility: hidden;
+        }
+
+        .disabled {
+            pointer-events: none; /* Desativa cliques */
+            color: gray; /* Muda a cor para indicar que está desativado */
+            text-decoration: none; /* Remove sublinhado */
+        }
+
+        #contador{
+            display: flex;
+            justify-content: center;
+            text-align: center;
         }
