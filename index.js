@@ -1,8 +1,25 @@
 const express = require("express");
 const Sequelize = require('sequelize');//conexao com mysql
 const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
+const { engine } = require('express-handlebars');
 app.use(express.static('public'));
-const port = 3000;
+const port = 3001;
+
+// handlebars
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', engine());
+app.engine('handlebars', engine({
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true, // Habilita o acesso a propriedades do protótipo
+        allowProtoMethodsByDefault: true
+    }
+}));
+// body parser
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
 
 // conexao com o banco de dados mysql
 const sequelize = new Sequelize('postapp', 'root', 'jaguarasso',{
@@ -20,16 +37,16 @@ sequelize.authenticate().then(function(){
 const lance = sequelize.define('lance', {
 
     leilao: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     lanceInicial: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     histLances: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     NumZap:{
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     nomeComprador:{
         type: Sequelize.STRING
@@ -54,17 +71,54 @@ app.get("/home", function(req, res){
     res.sendFile(__dirname+"/pag01.html")
 })
 
+// app.get("/leilao01", function(req,res){
+//     res.sendFile(__dirname+"/pages/leilao01.html")
+// })
 
-app.get("/add", function(req, res){
-    res.send("ta de sacanagi")
+app.post("/lance", function(req, res) {
+    const { leilaon, lanceFixo, numeroZap, nome } = req.body;
+    
+    // Encontre o maior lance atual para o leilão específico
+    lance.findOne({
+        where: { leilao: leilaon },
+        order: [['lanceInicial', 'DESC']]
+    }).then(function(lanceAnterior) {
+        const lanceAtual = parseFloat(lanceFixo);
+        
+        // Verifica se o lance anterior existe e se o lance atual é maior
+        if (!lanceAnterior || lanceAtual > parseFloat(lanceAnterior.lanceInicial)) {
+            // Cria o novo lance, pois ele é maior
+            return lance.create({
+                leilao: leilaon,
+                lanceInicial: lanceAtual,
+                histLances: lanceFixo, // Pode ajustar conforme sua lógica
+                NumZap: numeroZap,
+                nomeComprador: nome
+            });
+        } else {
+            // Retorna um erro se o lance atual não for maior
+            throw new Error('O lance atual deve ser maior que o lance anterior.');
+        }
+    }).then(function() {
+        res.sendFile(__dirname + "/pag02.html", function(erro) {
+            if (erro) {
+                res.send("Houve um erro: " + erro);
+            }
+        });
+    }).catch(function(erro) {
+        res.send("Houve um erro ao criar o lance: " + erro.message);
+    });
+});
+
+app.get("/leilao01", function(req,res){
+    lance.findAll().then(lances => {
+        res.render('leilao01', {lances: lances});
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
 })
 
 
 
-// app.get("/darlance", function(req, res){
-    
-// })
-
-
 console.log("servidor rodando na porta 3000");
-app.listen(3000);
+app.listen(3001);
