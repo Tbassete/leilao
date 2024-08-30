@@ -73,11 +73,11 @@ const lance = sequelize.define('lance', {
     }
 })
 //execute esse comando so uma vez para criar a table
-lance.sync({force: true}).then(() => {
-    console.log('Tabela criada com sucesso!');
-  }).catch((error) => {
-    console.error('Erro ao criar a tabela:', error);
-  }); 
+// lance.sync({force: true}).then(() => {
+//     console.log('Tabela criada com sucesso!');
+//   }).catch((error) => {
+//     console.error('Erro ao criar a tabela:', error);
+//   }); 
 
 // module.exports = {
 //     Sequelize: Sequelize,
