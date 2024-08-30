@@ -73,11 +73,11 @@ const lance = sequelize.define('lance', {
     }
 })
 //execute esse comando so uma vez para criar a table
-// lance.sync({force: true}).then(() => {
-//     console.log('Tabela criada com sucesso!');
-//   }).catch((error) => {
-//     console.error('Erro ao criar a tabela:', error);
-//   }); 
+lance.sync({force: true}).then(() => {
+    console.log('Tabela criada com sucesso!');
+  }).catch((error) => {
+    console.error('Erro ao criar a tabela:', error);
+  }); 
 
 // module.exports = {
 //     Sequelize: Sequelize,
@@ -150,47 +150,6 @@ app.post("/lance", function(req, res) {
         res.send("ops: " + erro.message);
     });
 });
-
-
-
-
-
-// app.post("/lance", function(req, res) {
-//     const { leilaon, lanceFixo, numeroZap, nome } = req.body;
-    
-//     // Encontre o maior lance atual para o leilão específico
-//     lance.findOne({
-//         where: { leilao: leilaon },
-//         order: [['lanceInicial', 'DESC']]
-//     }).then(function(lanceAnterior) {
-//         const lanceAtual = parseFloat(lanceFixo);
-        
-//         // Verifica se o lance anterior existe e se o lance atual é maior
-//         if (!lanceAnterior || lanceAtual > parseFloat(lanceAnterior.lanceInicial)) {
-//             // Cria o novo lance, pois ele é maior
-//             return lance.create({
-//                 leilao: leilaon,
-//                 lanceInicial: lanceAtual,
-//                 histLances: lanceFixo, // Pode ajustar conforme sua lógica
-//                 NumZap: numeroZap,
-//                 nomeComprador: nome
-//             });
-//         } else {
-//             // Retorna um erro se o lance atual não for maior
-//             throw new Error('O lance atual deve ser maior que o lance anterior.');
-//         }
-//     }).then(function() {
-//         res.sendFile(__dirname + "/pag02.html", function(erro) {
-//             if (erro) {
-//                 res.send("ops: " + erro);
-//             }
-//         });
-//     }).catch(function(erro) {
-//         res.send("ops: " + erro.message);
-//     });
-// });
-
-
 
 
 
