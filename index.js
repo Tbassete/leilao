@@ -88,7 +88,15 @@ app.get("/home", function(req, res){
     res.sendFile(__dirname+"/pag01.html")
 })
 
-
+// app.get("/", function(req, res){
+//     lance.findAll({
+//       lances
+//     }).then(lances => {
+//         res.render('pag01.handlebars', { lances: lances, layout: false });
+//     }).catch(erro => {
+//         res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+//     });
+// })
 
 app.post("/lance", function(req, res) {
     const { leilaon, lanceFixo, numeroZap, nome } = req.body;

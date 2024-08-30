@@ -19,12 +19,13 @@
             <img class="imgMega" src="../img/mega sem fundo.png" alt="">
         </div>
         <h1>Working for the best</h1>
-        <p>testezinho 34</p>
+        
     </header>    
 
     <main>
-
+      <div id="contadordiv">
        <h2 id="contador">O leilão encerrará em: 00 dias 00 horas 00 minutos 00 segundos</h2>
+      </div>
     <section id="sectionLeiloes">
         <div class="leilao">
             <div class="imgleilao">
@@ -64,7 +65,8 @@
                 {{!-- <p>lance vencendo: {{histLances[1]}} </p> --}}
                 {{#each lances}}
                   {{#if @last}}
-                     <p>lance vencendo: {{this.histLances}}</p>
+
+                    <p>lance vencendo: <span class="nomeComprador">{{nomeComprador}}</span> <span class="ultimoLance">R${{this.histLances}} </span> </p>
                    {{/if}}
                 {{/each}}
                 

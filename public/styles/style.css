@@ -121,6 +121,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: LEFT;
+            margin: 8px;
         }
 
         .FormLeilao{
@@ -128,7 +129,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: left;
-            margin: 20px;
+            margin: 40px;
         }
 
         #PHome{
@@ -153,7 +154,31 @@
         }
 
         #contador{
+            margin-top: 20px;
+            text-align: left;
+            max-width: 400px;
             display: flex;
             justify-content: center;
-            text-align: center;
+        }
+
+        .nomeComprador{
+            color: var(--azulMega);
+            font-size: 1.5rem;
+        }
+
+        .ultimoLance{
+            color: rgb(119, 190, 12);
+            font-size: 1.5rem;
+        }
+
+        #mainPG02{
+            display: flex;
+            flex-direction: column;
+
+            & div{
+                margin-top: 70px;
+                max-width: 500px;
+                height: auto;
+
+            }
         }
