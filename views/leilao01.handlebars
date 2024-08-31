@@ -23,17 +23,18 @@
     </header>    
 
     <main>
-      <div id="contadordiv">
-       <h2 id="contador">O leilão encerrará em: 00 dias 00 horas 00 minutos 00 segundos</h2>
-      </div>
+
+      
+
     <section id="sectionLeiloes">
         <div class="leilao">
+          <a href="/home" id="voltaHome"></a>
             <div class="imgleilao">
                 <div class="container">
                     <div id="carouselExampleIndicators" class="carousel slide">                      
                       <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
                        
                       </div>                      
                       <div class="carousel-inner">
@@ -69,33 +70,47 @@
                     <p>lance vencendo: <span class="nomeComprador">{{nomeComprador}}</span> <span class="ultimoLance">R${{this.histLances}} </span> </p>
                    {{/if}}
                 {{/each}}
-                
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores earum totam iure a cumque! Architecto natus, officiis fugiat, consequuntur corporis laudantium nihil expedita quae inventore est ullam, a unde fugit.</P>
            </div>
 
-
+          
            <form class="FormLeilao" action="/lance" method="post" target="_parent">
+             <div id="contadordiv">
+                    <h2 id="contador">O leilão encerrará em: 00 dias 00 horas 00 minutos 00 segundos</h2>
+              </div> 
+
             <label for="leilaon" class="esconder">leilao numero:</label>
             <input type="text" id="leilaon" value="1" class="esconder" name="leilaon">
 
             <label for="lanceInicial1" class="esconder">lance inicial</label>
             <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="200">
 
-              <label for="nome">digite seu nome:</label>
+              <label for="nome">Informe seu nome:</label>
               <input type="text" name="nome" id="nome" placeholder=""required> 
 
 
-              <label for="numeroZap">digite seu numero nesse padrão:</label>
-              <input type="tel" id="numeroZap" name="numeroZap" placeholder=" 5541999521973" maxlength="13" minlength="13" required>
-
-              <label for="lanceFixo">lance minimo R$30,00</label>
-              <input type="number" id="lanceFixo"  step="30" name="lanceFixo" placeholder="seu lance " required>
+              <label for="numeroZap">informe seu numero do whatsapp nesse padrão:</label>
+              <input type="tel" id="numeroZap" name="numeroZap" placeholder=" 554xxxxxxxxxx" maxlength="13" minlength="13" required>
+                  {{#each lances}}
+                  {{#if @last}}
+              <label for="lanceFixo">lance minimo R$30,00, o ultimo lance foi: R${{this.histLances}}</label>
+              <input type="number" id="lanceFixo"  step="30" min="200" name="lanceFixo" placeholder="seu lance " required>
+                  {{/if}}
+                  {{/each}}
               <button id="meuLink" class="botaoLeilao" >dar lance +R$30,00</button>
            </form>
 
         </div>
 
         </section>
-
+       <div id="ajuda"> 
+          <a href="https://wa.me/5541999521973" id="logoZapA" >
+          <div id="fraseAjuda">
+            <p>Duvidas?</p>
+          </div>
+          <div id="logoZap"></div>
+        </a>
+      </div>
     </main>
     <script>
     const dataEncerramento = new Date('2024-09-05T08:00:00'); // Ajuste a data e hora de encerramento

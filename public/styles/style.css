@@ -84,6 +84,19 @@
         .carousel-inner{
             max-width: 220px;
         }
+       
+        
+        #voltaHome{
+            position: relative;
+            right: 42%;
+            bottom: 41%;
+            background-image: url(../img/seta.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 45px;
+            height: 45px;
+        }
 
         .botaoLeilao{
             background-color: var(--azulMega);
@@ -122,6 +135,9 @@
             justify-content: center;
             align-items: LEFT;
             margin: 8px;
+            & P{
+                max-width: 300PX;
+            }
         }
 
         .FormLeilao{
@@ -154,9 +170,11 @@
         }
 
         #contador{
-            margin-top: 20px;
+            font-size: 1.5rem;
+            /* margin-top: 20px; */
+            margin-bottom: -68PX;
             text-align: left;
-            max-width: 400px;
+            max-width: 300px;
             display: flex;
             justify-content: center;
         }
@@ -169,6 +187,38 @@
         .ultimoLance{
             color: rgb(119, 190, 12);
             font-size: 1.5rem;
+        }
+
+        #logoZap{
+            /* position: relative; */
+            position: fixed;
+            right: 1%;
+            bottom: 65%;
+            background-image: url(../img/dummy-geschichte.jpg);
+            background-size: 59px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: contain;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background-color: #ffffff00;
+        }
+
+        #fraseAjuda{
+            background-color: var(--azulMega);
+            position: fixed;
+            right: 4%;
+            bottom: 65%;
+            width: 52px;
+            height: 18px;
+            border-radius: 6px;
+            z-index: 1;
+            text-align: center;
+            & p{
+                color: white;
+                font-size: 0.7rem;
+            }
         }
 
         #mainPG02{

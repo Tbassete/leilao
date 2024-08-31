@@ -35,4 +35,11 @@ body{
         display: flex;
         flex-direction: row;
     }
+
+    #voltaHome{
+        right: -2%;
+    }
+    #fraseAjuda{
+        right: 2%;
+    }
 }
