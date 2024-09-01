@@ -37,12 +37,12 @@
                         <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
                        
                       </div>                      
-                      <div class="carousel-inner">
+                      <div class="carousel-inner" >
                         <div class="carousel-item active">
-                          <img src="../img/mibr35-removebg-preview.png" class="d-block w-100" alt="...">
+                          <img src="../img/mibr38/mibr38.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                          <img src="../img/mibr78c-removebg-preview.png" class="d-block w-100" alt="...">
+                          <img src="../img/mibr38/mn01.png" class="d-block w-100" alt="...">
                         </div>
             
                       </div>                      
@@ -67,10 +67,14 @@
                 {{#each lances}}
                   {{#if @last}}
 
-                    <p>lance vencendo: <span class="nomeComprador">{{nomeComprador}}</span> <span class="ultimoLance">R${{this.histLances}} </span> </p>
+                    <p>lance vencendo:  <span class="ultimoLance">R${{this.histLances}} </span> <br> por: <span class="nomeComprador">{{nomeComprador}}</span></p>
                    {{/if}}
                 {{/each}}
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores earum totam iure a cumque! Architecto natus, officiis fugiat, consequuntur corporis laudantium nihil expedita quae inventore est ullam, a unde fugit.</P>
+                <P>Desktop Dell <br>
+                Processador: intel i3 3th <br>
+                Armazenamento: 240gb SSD <br>
+                Memoria ram: 4gb ddr3 <br>
+                monitor: mn01 dell 19polegadas</P>
            </div>
 
           
@@ -86,18 +90,23 @@
             <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="200">
 
               <label for="nome">Informe seu nome:</label>
-              <input type="text" name="nome" id="nome" placeholder=""required> 
+              <input type="text" name="nome" id="nome" placeholder="" maxlength="25"required> 
 
 
               <label for="numeroZap">informe seu numero do whatsapp nesse padrão:</label>
               <input type="tel" id="numeroZap" name="numeroZap" placeholder=" 554xxxxxxxxxx" maxlength="13" minlength="13" required>
-                  {{#each lances}}
+                
+              <label for="lanceFixo">incremento minimo R$40,00
+                {{#each lances}}
                   {{#if @last}}
-              <label for="lanceFixo">lance minimo R$30,00, o ultimo lance foi: R${{this.histLances}}</label>
-              <input type="number" id="lanceFixo"  step="30" min="200" name="lanceFixo" placeholder="seu lance " required>
+                     o ultimo lance foi: R$  
+                    {{this.histLances}}
                   {{/if}}
-                  {{/each}}
-              <button id="meuLink" class="botaoLeilao" >dar lance +R$30,00</button>
+                {{/each}}
+              </label>
+               
+              <input type="number" id="lanceFixo"  step="40" min="200" name="lanceFixo" placeholder="seu lance " required>
+              <button id="meuLink" class="botaoLeilao" >Arrematar</button>
            </form>
 
         </div>

@@ -65,26 +65,22 @@
             /* background-attachment: fixed; */
             background-size: cover;
 
-            &  #PHome{
-                display: flex;
-                position: relative;
-                color: white;
-                width: 580px;
-                font-size: 43px;
-                bottom: -241px;
-                left: calc(50% - 490px);
-                /* height: auto; */
-            }
+          
         }
         h1{
             color: var(--vermelhoMega);
             font-size: x-large;
         }
-
+        #fotosLeilao{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
         .carousel-inner{
             max-width: 220px;
         }
-       
+        .d-block{
+            border-radius: 20px;
+        }
         
         #voltaHome{
             position: relative;
@@ -104,7 +100,9 @@
             border-radius: 12px;
             border-style: none;
             max-width: 100px;
+            height: 40px;
             text-decoration: none;
+            text-align: center;
             margin: 6px;
             & .p1{
                 margin: 6px;
@@ -139,7 +137,9 @@
                 max-width: 300PX;
             }
         }
-
+        #homePC{
+            visibility: hidden;
+        }
         .FormLeilao{
             display: flex;
             flex-direction: column;
@@ -170,6 +170,7 @@
         }
 
         #contador{
+            
             font-size: 1.5rem;
             /* margin-top: 20px; */
             margin-bottom: -68PX;
@@ -181,35 +182,36 @@
 
         .nomeComprador{
             color: var(--azulMega);
-            font-size: 1.5rem;
+            font-size: 0.9rem;
         }
 
         .ultimoLance{
-            color: rgb(119, 190, 12);
-            font-size: 1.5rem;
+            color: rgb(82, 133, 7);
+            font-size: 0.9rem;
         }
 
+     
         #logoZap{
             /* position: relative; */
             position: fixed;
-            right: 1%;
+            right: 3%;
             bottom: 65%;
             background-image: url(../img/dummy-geschichte.jpg);
-            background-size: 59px;
+            background-size: 58px;
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: contain;
-            width: 75px;
-            height: 75px;
+            width: 59px;
+            height: 59px;
             border-radius: 50%;
-            background-color: #ffffff00;
+            background-color: #ffffff;
         }
 
         #fraseAjuda{
             background-color: var(--azulMega);
             position: fixed;
             right: 4%;
-            bottom: 65%;
+            bottom: 64%;
             width: 52px;
             height: 18px;
             border-radius: 6px;

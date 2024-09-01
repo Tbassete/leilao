@@ -72,7 +72,7 @@ const lance = sequelize.define('lance', {
         type: Sequelize.DATE
     }
 })
-//execute esse comando so uma vez para criar a table
+// execute esse comando so uma vez para criar a table
 // lance.sync({force: true}).then(() => {
 //     console.log('Tabela criada com sucesso!');
 //   }).catch((error) => {
@@ -192,11 +192,39 @@ app.get("/leilao02/:leilaoId", function(req,res){
     
 })
 
+app.get("/leilao03/:leilaoId", function(req,res){
 
-app.get('/teste', (req, res) => {
-    console.log('Rota /teste acessada');
-    res.render('teste.handlebars', { message: 'Hello World!' });
-});
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao03.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao04/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao04.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+
 
 
 console.log("servidor rodando na porta 3001");
