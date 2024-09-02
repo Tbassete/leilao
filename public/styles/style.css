@@ -153,13 +153,6 @@
         }
 
         .esconder{
-            /* z-index: -1;
-            width: 1px;
-            color: white;
-            display: block;
-            position: relative;
-            bottom: -241px;
-            left: calc(50% - 490px); */
             visibility: hidden;
         }
 
@@ -172,7 +165,6 @@
         #contador{
             
             font-size: 1.5rem;
-            /* margin-top: 20px; */
             margin-bottom: -68PX;
             text-align: left;
             max-width: 300px;
@@ -195,7 +187,7 @@
             /* position: relative; */
             position: fixed;
             right: 3%;
-            bottom: 65%;
+            bottom: 4%;
             background-image: url(../img/dummy-geschichte.jpg);
             background-size: 58px;
             background-position: center center;
@@ -211,7 +203,7 @@
             background-color: var(--azulMega);
             position: fixed;
             right: 4%;
-            bottom: 64%;
+            bottom: 4%;
             width: 52px;
             height: 18px;
             border-radius: 6px;
