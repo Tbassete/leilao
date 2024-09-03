@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEGATECH leilão15</title>
+    <title>MEGATECH leilão26</title>
     <link rel="shortcut icon" href="../img/megaFavicon-removebg-preview.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
@@ -33,29 +33,16 @@
                 <div class="container">
                     <div id="carouselExampleIndicators" class="carousel slide">                      
                       <div class="carousel-indicators">
-                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                        
+                    
                       </div>                      
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="../img/leilao15/mibrhp.png" class="d-block w-100" alt="...">
+                          <img src="../img/leilao26/mn08.png" class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item">
-                          <img src="../img/leilao15/mibrhp2.png" class="d-block w-100" alt="...">
-                        </div>
-                        
-                        
-            
-                      </div>                      
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
+                      </div> 
+
+                
                     </div>
                 </div>
             </div>
@@ -63,8 +50,8 @@
           <div class="infoLeilao">
 
                 
-                <p>leilao n° 15</p>
-                <P>lance inicial: R$350,00</P>
+                <p>leilao n° 26</p>
+                <P>lance inicial: R$80,00</P>
                 {{!-- <p>lance vencendo: {{histLances[1]}} </p> --}}
                 {{#each lances}}
                   {{#if @last}}
@@ -73,10 +60,8 @@
                    {{/if}}
                 {{/each}}
                 <P>
-                  Notebook: HP mibrHP<br>
-                  Processador i5 10th <br>
-                  Memoria Ram: 8GB ddr4 2400mhz <br>
-                  Armazenamento: 240gb ssd
+                  Monitor Dell 16polegadas mn07
+            
                   </P>
            </div>
 
@@ -87,10 +72,10 @@
               </div> 
 
             <label for="leilaon" class="esconder">leilao numero:</label>
-            <input type="text" id="leilaon" value="15" class="esconder" name="leilaon">
+            <input type="text" id="leilaon" value="26" class="esconder" name="leilaon">
 
             <label for="lanceInicial1" class="esconder">lance inicial</label>
-            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="350">
+            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="80">
 
               <label for="nome">Informe seu nome:</label>
               <input type="text" name="nome" id="nome" placeholder="" maxlength="25"required> 
@@ -108,7 +93,7 @@
                 {{/each}}
               </label>
                
-              <input type="number" id="lanceFixo"  step="40" min="350" name="lanceFixo" placeholder="seu lance " required>
+              <input type="number" id="lanceFixo"  step="40" min="80" name="lanceFixo" placeholder="seu lance " required>
               <button id="meuLink" class="botaoLeilao" >Arrematar</button>
            </form>
 

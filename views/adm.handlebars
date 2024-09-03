@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Últimos Lances</title>
+</head>
+<body>
+    <h1>Últimos Lances de Cada Leilão</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Leilão</th>
+                <th>Lance Inicial</th>
+                <th>Nome do Comprador</th>
+                <th>Data Limite</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lances}}
+            <tr>
+                <td>{{this.leilao}}</td>
+                <td>{{this.histLances}}</td>
+                <td>{{this.nomeComprador}}</td>
+                <td>{{this.dataLimite}}</td>
+                <td>
+                    <form action="/excluir/{{this.id}}" method="POST">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

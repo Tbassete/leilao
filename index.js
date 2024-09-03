@@ -479,5 +479,128 @@ app.get("/leilao20/:leilaoId", function(req,res){
     });
     
 })
+
+app.get("/leilao21/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao21.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao22/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao22.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao23/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao23.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao24/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao24.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao25/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao25.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao26/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao26.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+
+app.get("/admexc/:leilaoId", function(req, res) {
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('adm.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+});
+
+app.post('/excluir/:id', async (req, res) => {
+    try {
+        const lanceId = req.params.id;
+        await lance.destroy({ where: { id: lanceId } });
+        res.redirect('/admexc/:id');
+    } catch (error) {
+        res.status(500).send('Erro ao excluir lance: ' + error.message);
+    }
+});
+
+
 console.log("servidor rodando na porta 3001");
 app.listen(3001);
