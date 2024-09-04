@@ -576,6 +576,41 @@ app.get("/leilao26/:leilaoId", function(req,res){
     
 })
 
+app.get("/leilao27/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao27.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+app.get("/leilao28/:leilaoId", function(req,res){
+
+    const leilaoId = req.params.leilaoId;
+
+    lance.findAll({
+        where: {
+            leilao: leilaoId
+        }
+    }).then(lances => {
+        res.render('leilao28.handlebars', { lances: lances, layout: false });
+    }).catch(erro => {
+        res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
+    });
+    
+})
+
+
+
+
 
 app.get("/admexc/:leilaoId", function(req, res) {
     const leilaoId = req.params.leilaoId;
@@ -590,6 +625,8 @@ app.get("/admexc/:leilaoId", function(req, res) {
         res.status(500).send("Houve um erro ao buscar lances: " + erro.message);
     });
 });
+
+
 
 app.post('/excluir/:id', async (req, res) => {
     try {

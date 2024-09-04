@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGATECH leilão28</title>
+    <link rel="shortcut icon" href="../img/megaFavicon-removebg-preview.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/mediaquery.css">
+    <script src="/pages/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+   
+</head>
+<body>
+
+    <header>
+        <div class="imgMega">
+            <img class="imgMega" src="../img/mega sem fundo.png" alt="">
+        </div>
+        <h1>Working for the best</h1>
+        
+    </header>    
+
+    <main>
+
+      
+
+    <section id="sectionLeiloes">
+        <div class="leilao">
+          <a href="/home" id="voltaHome"></a>
+            <div class="imgleilao">
+                <div class="container">
+                    <div id="carouselExampleIndicators" class="carousel slide">                      
+                      <div class="carousel-indicators">
+                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                        <button type="button"  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                      </div>                      
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="../img/leilao28/mibr65.png" class="d-block w-100" alt="...">
+                        </div>
+                     
+                        
+            
+                      </div>                      
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+
+          <div class="infoLeilao">
+
+                
+                <p>leilao n° 28</p>
+                <P>lance inicial: R$340,00</P>
+                {{!-- <p>lance vencendo: {{histLances[1]}} </p> --}}
+                {{#each lances}}
+                  {{#if @last}}
+
+                    <p>lance vencendo:  <span class="ultimoLance">R${{this.histLances}} </span> <br> por: <span class="nomeComprador">{{nomeComprador}}</span></p>
+                   {{/if}}
+                {{/each}}
+                <P>
+                  Notebook: acer mibr65<br>
+                  Processador: Intel I5 7TH <br>
+                  Memória Ram: 6GB RAM DDR4 <br>
+                  Armazenamento: ssd 240GB <br>
+                  OBSERVAÇÃO: O Notebooks so estará disponivel após o dia 15/09
+                  </P>
+           </div>
+
+          
+           <form class="FormLeilao" action="/lance" method="post" target="_parent">
+             <div id="contadordiv">
+                    <h2 id="contador">O leilão encerrará em: 00 dias 00 horas 00 minutos 00 segundos</h2>
+              </div> 
+
+            <label for="leilaon" class="esconder">leilao numero:</label>
+            <input type="text" id="leilaon" value="28" class="esconder" name="leilaon">
+
+            <label for="lanceInicial1" class="esconder">lance inicial</label>
+            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="340">
+
+              <label for="nome">Informe seu nome:</label>
+              <input type="text" name="nome" id="nome" placeholder="" maxlength="25"required> 
+
+
+              <label for="numeroZap">informe seu numero do whatsapp nesse padrão:</label>
+              <input type="tel" id="numeroZap" name="numeroZap" placeholder="4xxxxxxxxxx" maxlength="11" minlength="11" required>
+                
+              <label for="lanceFixo">incremento minimo R$40,00
+                {{#each lances}}
+                  {{#if @last}}
+                     o ultimo lance foi: R$  
+                    {{this.histLances}}
+                  {{/if}}
+                {{/each}}
+              </label>
+               
+              <input type="number" id="lanceFixo"  step="40" min="340" name="lanceFixo" placeholder="seu lance " required>
+              <button id="meuLink" class="botaoLeilao" >Arrematar</button>
+           </form>
+
+        </div>
+
+        </section>
+       <div id="ajuda"> 
+          <a href="https://wa.me/5541999521973" id="logoZapA" >
+          <div id="fraseAjuda">
+            <p>Duvidas?</p>
+          </div>
+          <div id="logoZap"></div>
+        </a>
+      </div>
+    </main>
+    <script>
+    const dataEncerramento = new Date('2024-09-05T17:00:00'); // Ajuste a data e hora de encerramento
+
+        const link = document.getElementById('meuLink');
+        const contador = document.getElementById('contador');
+
+        function atualizarContagemRegressiva() {
+            const agora = new Date();
+            const tempoRestante = dataEncerramento - agora;
+
+            if (tempoRestante <= 0) {
+                // Tempo esgotado
+                contador.textContent = 'O leilão encerrou.';
+                link.classList.add('disabled');
+                link.removeAttribute('href');
+                return;
+            }
+
+            // Calcula dias, horas, minutos e segundos
+            const segundos = Math.floor(tempoRestante / 1000) % 60;
+            const minutos = Math.floor(tempoRestante / (1000 * 60)) % 60;
+            const horas = Math.floor(tempoRestante / (1000 * 60 * 60)) % 24;
+            const dias = Math.floor(tempoRestante / (1000 * 60 * 60 * 24));
+
+            // Atualiza o texto do contador
+            contador.textContent = `O leilão encerrará em: ${dias} dias ${horas} horas ${minutos} minutos ${segundos} segundos`;
+        }
+
+        // Atualiza a contagem regressiva a cada segundo
+        setInterval(atualizarContagemRegressiva, 1000);
+
+        // Atualiza imediatamente para exibir o tempo correto sem esperar 1 segundo
+        atualizarContagemRegressiva();
+    </script>
+    <Script src="index.js"></Script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+        
+</body>
+
+</html>
