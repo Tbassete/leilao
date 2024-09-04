@@ -51,7 +51,7 @@
 
                 
                 <p>leilao n° 26</p>
-                <P>lance inicial: R$80,00</P>
+                <P>lance inicial: R$40,00</P>
                 {{!-- <p>lance vencendo: {{histLances[1]}} </p> --}}
                 {{#each lances}}
                   {{#if @last}}
@@ -60,7 +60,7 @@
                    {{/if}}
                 {{/each}}
                 <P>
-                  Monitor Dell 16polegadas mn07
+                  Monitor samsung 16polegadas mn07
             
                   </P>
            </div>
@@ -75,7 +75,7 @@
             <input type="text" id="leilaon" value="26" class="esconder" name="leilaon">
 
             <label for="lanceInicial1" class="esconder">lance inicial</label>
-            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="80">
+            <input type="text" id="lanceInicial1" class="esconder" name="lanceInicial1" value="40">
 
               <label for="nome">Informe seu nome:</label>
               <input type="text" name="nome" id="nome" placeholder="" maxlength="25"required> 
@@ -93,7 +93,7 @@
                 {{/each}}
               </label>
                
-              <input type="number" id="lanceFixo"  step="40" min="80" name="lanceFixo" placeholder="seu lance " required>
+              <input type="number" id="lanceFixo"  step="40" min="40" name="lanceFixo" placeholder="seu lance " required>
               <button id="meuLink" class="botaoLeilao" >Arrematar</button>
            </form>
 
