@@ -12,7 +12,9 @@
                 <th>Lance Inicial</th>
                 <th>Nome do Comprador</th>
                 <th>numeroZap</th>
+                <th>hora</th>
                 <th>Ações</th>
+
             </tr>
         </thead>
         <tbody>
@@ -22,6 +24,7 @@
                 <td>{{this.histLances}}</td>
                 <td>{{this.nomeComprador}}</td>
                 <td>{{this.NumZap}}</td>
+                <td>{{this.updatedAt}}</td>
                 <td>
                     <form action="/excluir/{{this.id}}" method="POST">
                         <button type="submit">Excluir</button>
